@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  frequency: MyString
+  duration: MyString
+  date_prescribed: 2024-02-21
+  pet: one
+  vet: one
+  med: one
+
+two:
+  frequency: MyString
+  duration: MyString
+  date_prescribed: 2024-02-21
+  pet: two
+  vet: two
+  med: two
