@@ -1,4 +1,5 @@
 class VetsController < ApplicationController
+    before_action :set_vet, only: [:show, :update]
 
     def show
         render json: @vet

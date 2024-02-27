@@ -1,11 +1,12 @@
 class PetsController < ApplicationController
+    before_action :set_pet, only: [:show, :update, :destroy]
+
     def index
         @pets = Pet.all
         render json: @pets
     end
 
     def show
-        @pet = Pet.find(pet_params[:id])
         render json: @pet
     end
 
@@ -19,7 +20,6 @@ class PetsController < ApplicationController
     end
 
     def update
-        @pet = Pet.find(pet_params[:id])
         if @pet.update
             render json: @pet
         else
@@ -28,7 +28,6 @@ class PetsController < ApplicationController
     end
 
     def destroy
-        @pet = Pet.find(pet_params[:id])
         if @pet.destroy
             render json: { message: "Successfully deleted pet." }
         else
@@ -39,5 +38,9 @@ class PetsController < ApplicationController
     private
     def pet_params
         params.require(:pet).permit(:name, :species)
+    end
+
+    def set_pet
+        @pet = Pet.find(params[:id])
     end
 end

@@ -1,11 +1,12 @@
 class PrescriptionsController < ApplicationController
+    before_action :set_prescription, only: [:show, :update, :destroy]
+
     def index
         @prescriptions = Prescription.all
         render json: @prescriptions
     end
 
     def show
-        @prescription = Prescription.find(prescription_params[:id])
         render json: @prescription
     end
 
@@ -19,7 +20,6 @@ class PrescriptionsController < ApplicationController
     end
 
     def update
-        @prescription = Prescription.find(prescription_params[:id])
         if @prescription.update
             render json: @prescription
         else
@@ -28,7 +28,6 @@ class PrescriptionsController < ApplicationController
     end
 
     def destroy
-        @prescription = Prescription.find(prescription_params[:id])
         if @prescription.destroy
             render json: { message: "Successfully deleted prescription." }
         else
@@ -39,5 +38,9 @@ class PrescriptionsController < ApplicationController
     private
     def prescription_params
         params.require(:prescription).permit(:frequency, :duration, :date_prescribed)
+    end
+
+    def set_prescription
+        @prescription = Prescription.find(params[:id])
     end
 end

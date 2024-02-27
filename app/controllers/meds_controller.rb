@@ -1,11 +1,12 @@
 class MedsController < ApplicationController
+    before_action :set_med, only: [:show, :update, :destroy]
+
     def index
         @meds = Med.all
         render json: @meds
     end
 
     def show
-        @med = Med.find(med_params[:id])
         render json: @med
     end
 
@@ -19,7 +20,6 @@ class MedsController < ApplicationController
     end
 
     def update
-        @med = Med.find(med_params[:id])
         if @med.update
             render json: @med
         else
@@ -28,7 +28,6 @@ class MedsController < ApplicationController
     end
 
     def destroy
-        @med = Med.find(med_params[:id])
         if @med.destroy
             render json: { message: "Successfully deleted medication." }
         else
@@ -39,5 +38,9 @@ class MedsController < ApplicationController
     private
     def med_params
         params.require(:med).permit(:name, :dosage)
+    end
+
+    def set_med
+        @med = Med.find(params[:id])
     end
 end
