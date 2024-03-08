@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :pets
+  # get 'profiles/show'
+
+  post 'login', to: 'sessions#create'
+
+  # scope :profiles do
+  #   get ':first_name', to: "profiles#show"
+  # end
+
+  resources :users do
+    resources :pets
+  end
   resources :vets, only: [:show, :update]
   resources :meds
   resources :prescriptions
