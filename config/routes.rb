@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  # get 'profiles/show'
 
   post 'login', to: 'sessions#create'
 
-  # scope :profiles do
-  #   get ':first_name', to: "profiles#show"
-  # end
 
   resources :users do
     resources :pets
