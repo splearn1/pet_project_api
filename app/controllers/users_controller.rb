@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:update, :show, :destroy]
-    before_action :authenticate_request, only: [:index, :show, :update, :destroy]
+    before_action :authenticate_request, only: [:show, :update, :destroy]
 
     def index
         @users = User.all
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         if user.save
             render json: UserBlueprint.render(user, view: :normal), status: :created 
         else
-            render json: {error: "Unable to create user."}, status: :unprocessable_entity
+            render json: {error: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

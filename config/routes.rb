@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   post 'login', to: 'sessions#create'
-
+  post '/users', to: 'users#create'
 
   resources :users do
     resources :pets
@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :vets, only: [:show, :update]
   resources :meds
   resources :prescriptions
-
 
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -24,6 +24,6 @@ number_of_vets.times do
         name: Faker::Name.name,
         email: Faker::Internet.email,
         # phone: phone_number
-        phone: Faker::PhoneNumber.phone_number_with_country_code
+        phone: Faker::Number.number(digits: 10) #=> 1968353479
     )
 end
