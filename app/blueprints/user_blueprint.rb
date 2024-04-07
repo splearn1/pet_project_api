@@ -9,7 +9,7 @@ class UserBlueprint < Blueprinter::Base
     # end
 
     view :me do
-        fields :username, :pets, :prescriptions, :meds
+        fields :username
 
         association :pets, blueprint: PetBlueprint, view: :short
         association :prescriptions, blueprint: PrescriptionBlueprint, view: :short

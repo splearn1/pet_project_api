@@ -3,7 +3,7 @@
 class MedBlueprint < Blueprinter::Base
     identifier :id
 
-    view normal do
+    view :normal do
         fields :name, :dosage
     end
 
