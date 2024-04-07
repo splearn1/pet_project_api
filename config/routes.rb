@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  get 'web/bootstrap'
+#DO I Need to put scope '/' do HERE???
   post 'login', to: 'sessions#create'
   post '/users', to: 'users#create'
 
@@ -10,12 +11,11 @@ Rails.application.routes.draw do
   resources :meds
   resources :prescriptions
 
-# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #this is where I want to show each pet with their respective precription information
+  # resources :users do
+  #   get 'users/pets', to: "pets_id#show"
+  #   get 'pets/prescriptions', to: "prescriptions#show"
+  #   end
+  # end
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  #get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

@@ -8,6 +8,14 @@ class UserBlueprint < Blueprinter::Base
     #     user.pets.all
     # end
 
+    view :me do
+        fields :username, :pets, :prescriptions, :meds
+
+        association :pets, blueprint: PetBlueprint, view: :short
+        association :prescriptions, blueprint: PrescriptionBlueprint, view: :short
+        association :meds, blueprint: MedBlueprint, view: :normal
+    end
+
     view :normal do
         fields :first_name, :last_name, :email, :username
 

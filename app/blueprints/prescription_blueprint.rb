@@ -7,6 +7,10 @@ class PrescriptionBlueprint < Blueprinter::Base
     associations :vets, blueprint: VetBlueprint, view: :normal
     associations :meds, blueprint: MedBlueprint, view: :normal
 
+    view short do
+        fields :frequency
+    end
+
     view normal do
         fields :frequency, :duration, :date_prescribed
     end
