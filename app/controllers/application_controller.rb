@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
         rescue JWT::ExpiredSignature
             render json: { error: "Token has expired" }, status: :unauthorized
         rescue JWT::DecodeError
-            render json: { error: "unauthorized" }, status: :unathorized
+            render json: { error: "unauthorized" }, status: :unauthorized
         end
 
     end

@@ -1,5 +1,5 @@
 class PrescriptionsController < ApplicationController
-    before_action :set_prescription, only: [:show, :update, :destroy]
+    # before_action :set_prescription, only: [:show, :update, :destroy]
 
     def index
         @prescriptions = Prescription.all
@@ -37,7 +37,7 @@ class PrescriptionsController < ApplicationController
 
     private
     def prescription_params
-        params.require(:prescription).permit(:frequency, :duration, :date_prescribed)
+        params.permit(:frequency, :duration, :date_prescribed)
     end
 
     def set_prescription

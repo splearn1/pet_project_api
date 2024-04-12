@@ -22,4 +22,8 @@ class UserBlueprint < Blueprinter::Base
         association :pets, blueprint: PetBlueprint, view: :normal 
     end
 
+    view :default do
+        fields :first_name, :last_name, :email, :username
+    end
+
 end

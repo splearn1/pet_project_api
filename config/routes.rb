@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   post '/users', to: 'users#create'
 
-  resources :users do
-    resources :pets
-  end
+  resources :users
+  resources :pets
+  
   resources :vets, only: [:show, :update]
   resources :meds
   resources :prescriptions

@@ -1,5 +1,5 @@
 class VetsController < ApplicationController
-    before_action :set_vet, only: [:show, :update]
+    # before_action :set_vet, only: [:show, :update]
 
     def show
         render json: @vet
@@ -15,7 +15,7 @@ class VetsController < ApplicationController
 
     private
     def vet_params
-        params.require(:vet).permit(:name, :email, :phone)
+        params.permit(:name, :email, :phone)
     end
 
     def set_vet

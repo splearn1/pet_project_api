@@ -1,10 +1,11 @@
 class PetsController < ApplicationController
-    before_action :set_pet, only: [:show, :update, :destroy]
+    # before_action :set_pet, only: [:show, :update, :destroy]
     before_action :authenticate_request
 
 
     def show
-        render json: @pet
+        @pet = Pet.find(params[:id])
+        render json: @pet, status: :ok
     end
 
     def create
@@ -17,6 +18,7 @@ class PetsController < ApplicationController
     end
 
     def update
+        @pet = Pet.find(params[:id])
         if @pet.update(pet_params)
             render json: @pet
         else
@@ -34,12 +36,15 @@ class PetsController < ApplicationController
 
     private
     def pet_params
-        params.require(:pet).permit(:name, :species)
+        params.permit(:name, :species)
     end
 
     def set_pet
-        @pet = @current_user.pets.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-        render json: { error: "Pet not found." }, status: :not_found
-    end
+        if @current_user
+          @pet = @current_user.pets.find_by(id: params[:id])
+          render json: { error: "Pet not found." }, status: :not_found unless @pet
+        else
+          render json: { error: "Unauthorized: No current user." }, status: :unauthorized
+        end
+      end
 end

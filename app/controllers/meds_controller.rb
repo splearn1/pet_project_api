@@ -1,5 +1,5 @@
 class MedsController < ApplicationController
-    before_action :set_med, only: [:show, :update, :destroy]
+    # before_action :set_med, only: [:show, :update, :destroy]
 
     def index
         @meds = Med.all
@@ -37,7 +37,7 @@ class MedsController < ApplicationController
 
     private
     def med_params
-        params.require(:med).permit(:name, :dosage)
+        params.permit(:name, :dosage)
     end
 
     def set_med
