@@ -11,9 +11,9 @@ class UserBlueprint < Blueprinter::Base
     view :me do
         fields :username
 
-        association :pets, blueprint: PetBlueprint, view: :short
-        association :prescriptions, blueprint: PrescriptionBlueprint, view: :short
-        association :meds, blueprint: MedBlueprint, view: :normal
+        association :pets, blueprint: PetBlueprint, view: :short_with_rx
+        # association :prescriptions, blueprint: PrescriptionBlueprint, view: :short
+        # association :meds, blueprint: MedBlueprint, view: :normal
     end
 
     view :normal do
@@ -22,8 +22,8 @@ class UserBlueprint < Blueprinter::Base
         association :pets, blueprint: PetBlueprint, view: :normal 
     end
 
-    view :default do
-        fields :first_name, :last_name, :email, :username
-    end
+    # view :default do
+    #     fields :first_name, :email, :username
+    # end
 
 end

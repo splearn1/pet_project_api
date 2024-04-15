@@ -7,6 +7,12 @@ class PetBlueprint < Blueprinter::Base
         fields :name
     end
 
+    view :short_with_rx do
+        fields :name
+
+        association :prescriptions, blueprint: PrescriptionBlueprint, view: :short
+    end
+
     view :normal do
         fields :name, :species
     end
