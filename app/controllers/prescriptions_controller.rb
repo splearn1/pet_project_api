@@ -37,7 +37,7 @@ class PrescriptionsController < ApplicationController
 
     private
     def prescription_params
-        params.permit(:frequency, :duration, :date_prescribed)
+        params.permit(:frequency, :duration, :date_prescribed, :med_id, :pet_id, :vet_id)
     end
 
     def set_prescription
