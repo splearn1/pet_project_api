@@ -3,9 +3,9 @@
 class PrescriptionBlueprint < Blueprinter::Base
     identifier :id
 
-    association :pets, blueprint: PetBlueprint, view: :normal
-    association :vets, blueprint: VetBlueprint, view: :normal
-    association :meds, blueprint: MedBlueprint, view: :normal
+    # association :pet, blueprint: PetBlueprint, view: :normal
+    association :vet, blueprint: VetBlueprint, view: :normal
+    association :med, blueprint: MedBlueprint, view: :normal
 
     view :short do
         fields :frequency
