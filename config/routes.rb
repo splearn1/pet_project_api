@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'web/bootstrap'
+  get 'web/user_data'
 #DO I Need to put scope '/' do HERE???
   post 'login', to: 'sessions#create'
   post '/users', to: 'users#create'
