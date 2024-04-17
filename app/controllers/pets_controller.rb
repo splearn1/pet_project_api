@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
-    # before_action :set_pet, only: [:show, :update, :destroy]
     before_action :authenticate_request
+    
+    before_action :set_pet, only: [:show, :update, :destroy]
 
 
     def show
