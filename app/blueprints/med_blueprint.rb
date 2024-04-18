@@ -7,7 +7,5 @@ class MedBlueprint < Blueprinter::Base
         fields :name, :dosage
     end
 
-    view :extended do
-        fields :name, :dosage, :description
-    end
+    
 end

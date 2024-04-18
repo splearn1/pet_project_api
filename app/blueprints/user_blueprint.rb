@@ -8,7 +8,7 @@ class UserBlueprint < Blueprinter::Base
         fields :username, :first_name
 
         association :pets, blueprint: PetBlueprint, view: :timeline
-        # association :prescriptions, blueprint: PrescriptionBlueprint, view: :short
+        # association :prescriptions, blueprint: PrescriptionBlueprint, view: :short  view not used
         # association :meds, blueprint: MedBlueprint, view: :normal
     end
 
