@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     end
 
     private
+    # This method was too restrictive for my purposes - the next one down is preferred!!!
     # def user_params
     #     params.require(:user).permit(:first_name, :last_name, :email, :password, :username)
     # end

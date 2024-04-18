@@ -4,10 +4,6 @@ class UserBlueprint < Blueprinter::Base
     identifier :id
 
 
-    # associations :pets, blueprint: PetBlueprint, view: :normal do |user|
-    #     user.pets.all
-    # end
-
     view :timeline do
         fields :username, :first_name
 
